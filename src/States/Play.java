@@ -24,6 +24,14 @@ public class Play extends GameState{
     private BufferedImage playing_image;
     private BufferedImage map_area;
 
+    private BufferedImage Player1;
+    private BufferedImage Player2;
+
+    public static int who_win=0;
+
+    public static String Player1_health = "100";
+    public static String Player2_health = "100";
+
     private Tank tank1;
     private Tank tank2;
 
@@ -43,6 +51,9 @@ public class Play extends GameState{
     }
 
     public void init() {
+
+        Player1_health = "100";
+        Player2_health = "100";
 
         Random random = new Random();
         random_area = random.nextInt(3)+1;//minumum 1 max 3
@@ -64,6 +75,8 @@ public class Play extends GameState{
         try {
             playing_image = ImageIO.read(new FileInputStream("img/playing_areas/area"+random_area+".jpg"));
             map_area = ImageIO.read(new FileInputStream("img/playing_areas/map"+random_area+".png"));
+            Player1 = ImageIO.read(new FileInputStream("img/player1.png"));
+            Player2 = ImageIO.read(new FileInputStream("img/player2.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -94,13 +107,23 @@ public class Play extends GameState{
         handleInput();
         tank1.update();
         tank2.update();
+        if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player2_health) == 0 || Integer.parseInt(Player1_health) < 0 || Integer.parseInt(Player2_health) < 0){
+            if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player1_health) < 0){who_win = 1;}
+            else {who_win = 2;}
+            gsm.setState(GameStateManager.FINISH);
+        }
 
     }
 
     public void draw(Graphics2D g) {
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 14));
         if(fire != 1) {
             g.drawImage(playing_image, 0, 0, null);
             g.drawImage(map_area, 0, 248, null);
+            g.drawImage(Player1, 550, 25, null);
+            g.drawImage(Player2, 550, 45, null);
+            g.drawString(Player1_health,635,39);
+            g.drawString(Player2_health, 635, 59);
             tank1.draw(g);
             tank2.draw(g);
         }
@@ -125,6 +148,9 @@ public class Play extends GameState{
         if(Keys.isPressed(Keys.SPACE)){
 
             if(fire!=1){fire=1;}
+            Integer health = Integer.parseInt(Player1_health);
+            health--;
+            Player1_health = health.toString();
         }
 
         if(Keys.isDown(Keys.UP)){

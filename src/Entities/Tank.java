@@ -1,6 +1,5 @@
 package Entities;
 
-import Manager.JukeBox;
 import Manager.Keys;
 import States.Play;
 
@@ -49,6 +48,7 @@ public class Tank extends Entity {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
         sprites = super.set_frames(sprite_image,width,height);
         Random random = new Random();
 
