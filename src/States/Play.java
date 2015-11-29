@@ -52,7 +52,7 @@ public class Play extends GameState{
 
     public void init() {
 
-        Player1_health = "100";
+        Player1_health = "1";
         Player2_health = "100";
 
         Random random = new Random();
@@ -108,6 +108,8 @@ public class Play extends GameState{
         tank1.update();
         tank2.update();
         if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player2_health) == 0 || Integer.parseInt(Player1_health) < 0 || Integer.parseInt(Player2_health) < 0){
+            JukeBox.stop("battle_background");
+            JukeBox.play("explosion");
             if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player1_health) < 0){who_win = 1;}
             else {who_win = 2;}
             gsm.setState(GameStateManager.FINISH);
