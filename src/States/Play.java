@@ -112,11 +112,15 @@ public class Play extends GameState{
             JukeBox.stop("battle_background");
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             JukeBox.stop("barrel_move");
             JukeBox.stop("move");
             JukeBox.play("big_explosion");
             JukeBox.play("explosion");
 
+=======
+            JukeBox.play("explosion");
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
             JukeBox.play("explosion");
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
