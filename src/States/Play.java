@@ -110,6 +110,7 @@ public class Play extends GameState{
         if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player2_health) == 0 || Integer.parseInt(Player1_health) < 0 || Integer.parseInt(Player2_health) < 0){
 
             JukeBox.stop("battle_background");
+<<<<<<< HEAD
 
             JukeBox.stop("barrel_move");
             JukeBox.stop("move");
@@ -122,6 +123,8 @@ public class Play extends GameState{
 
             JukeBox.play("explosion");
 
+=======
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
             JukeBox.play("explosion");
             if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player1_health) < 0){who_win = 1;}
             else {who_win = 2;}

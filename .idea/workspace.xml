@@ -29,7 +29,11 @@
             <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
               <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+=======
+              <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
               <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -47,6 +51,7 @@
         <entry file="file://$PROJECT_DIR$/src/Entities/Bullets.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
               <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
@@ -114,6 +119,9 @@
             <state vertical-scroll-proportion="0.6340509">
               <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
+=======
+              <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -121,16 +129,54 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main/GamePanel.java">
+      <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Entities/Entity.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
+<<<<<<< HEAD
 <<<<<<< HEAD
               <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
 =======
               <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Finish.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/States/Finish.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6340509">
+              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+=======
+              <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+<<<<<<< HEAD
+=======
+      <file leaf-file-name="Play.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/States/Play.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Intro.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/States/Intro.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="31" />
@@ -151,11 +197,15 @@
           </provider>
         </entry>
       </file>
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
       <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Main/GamePanel.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+<<<<<<< HEAD
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
+=======
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
               <folding />
             </state>
@@ -245,7 +295,10 @@
     <panes>
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <pane id="PackagesPane" />
+=======
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
@@ -395,6 +448,9 @@
             </PATH_ELEMENT>
           </PATH>
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
+=======
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -727,8 +783,11 @@
       <workItem from="1448802221270" duration="6291000" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
       <workItem from="1449088111859" duration="32000" />
       <workItem from="1449088469222" duration="21000" />
+=======
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
@@ -739,7 +798,11 @@
   <component name="TimeTrackingManager">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="163581000" />
+=======
+    <option name="totallyTimeSpent" value="163528000" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
     <option name="totallyTimeSpent" value="163528000" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -760,6 +823,10 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16434109" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16434109" sideWeight="0.49707174" order="2" side_tool="false" content_ui="tabs" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -1125,7 +1192,11 @@
         <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <caret line="16" column="0" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+=======
+          <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
           <caret line="15" column="34" selection-start-line="15" selection-start-column="34" selection-end-line="15" selection-end-column="34" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -1141,7 +1212,11 @@
         <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+=======
+          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -1159,7 +1234,11 @@
         <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
+=======
+          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
           <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -1177,7 +1256,11 @@
         <state vertical-scroll-proportion="0.0">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
           <caret line="49" column="0" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+=======
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
           <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
 >>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
@@ -1210,8 +1293,13 @@
       <provider selected="true" editor-type-id="text-editor">
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.39384118">
           <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+=======
+        <state vertical-scroll-proportion="0.6340509">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
 =======
         <state vertical-scroll-proportion="0.6340509">
           <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
