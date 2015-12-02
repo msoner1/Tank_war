@@ -35,6 +35,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
     // game state manager
     private GameStateManager gsm;
 
+    public static int game_loop_tick=0;//oyun döngüsü her ticklediðinde artan deðiþken.
 
     public GamePanel(){ //Jpanel yaratýyoruz.kurucumuz
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
@@ -85,6 +86,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
             }
 
         }
+        game_loop_tick++;
 
     }
 

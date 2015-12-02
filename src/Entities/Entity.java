@@ -29,13 +29,11 @@ public abstract class Entity {
     public void set_animation(Graphics2D g,BufferedImage[] sprites,int animation_speed,int cordinates_x ,int cordinates_y){ //istenilen animasyonu yaratmasý için yenilenmeli(recursive) çalýþmalýdýr.
 
         if (animation_frame_speed== animation_speed) {
-            if(animation_frame_img == sprites.length ){animation_frame_img=0;}
+            if(animation_frame_img == sprites.length){animation_frame_img=0;}
             else {
-
                 animation_frame_speed = 1;
                 g.drawImage(sprites[animation_frame_img], cordinates_x, cordinates_y, null);
                 animation_frame_img++;
-
             }
         } else {
             animation_frame_speed++;

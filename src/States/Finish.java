@@ -48,9 +48,13 @@ public class Finish extends GameState {
     public void update() {
         handleInput();
 
+<<<<<<< HEAD
         if(developer_position_y != -2080 ){developer_position_y--;}
         if(developer_position_y != -1580 ){developer_position_y--;}
 
+=======
+        if(developer_position_y != -1580 ){developer_position_y--;}
+>>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek üzere eklendi.
     }
 
     @Override
