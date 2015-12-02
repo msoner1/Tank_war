@@ -2,7 +2,6 @@ package States;
 
 import Entities.Bullets;
 import Entities.Tank;
-import Main.GamePanel;
 import Manager.GameStateManager;
 import Manager.JukeBox;
 import Manager.Keys;
@@ -37,8 +36,9 @@ public class Play extends GameState{
 
     private  Bullets bullets;
 
-    private int sira = 1;
-    public static int fire = 0;
+    private int sira;
+    private boolean change_sira = false;
+    private int fire = 0;
 
     private int[] map_cordinates_x;
     private int[] map_cordinates_y;
@@ -52,7 +52,7 @@ public class Play extends GameState{
 
     public void init() {
 
-        Player1_health = "1";
+        Player1_health = "100";
         Player2_health = "100";
 
         Random random = new Random();
@@ -68,6 +68,7 @@ public class Play extends GameState{
         JukeBox.load("sfx/tank_move.mp3", "move");
         JukeBox.load("sfx/barrel_move.mp3", "barrel_move");
         JukeBox.load("sfx/explosion.mp3", "explosion");
+        JukeBox.load("sfx/big_explosion.mp3", "big_explosion");
         JukeBox.setVolume("fire", +5);
         JukeBox.setVolume("explosion", +5);
 
@@ -101,31 +102,20 @@ public class Play extends GameState{
 
         bullets = new Bullets();
 
+        sira = 1;
+        change_sira = false;
     }
 
     public void update() {
+
         handleInput();
         tank1.update();
         tank2.update();
         if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player2_health) == 0 || Integer.parseInt(Player1_health) < 0 || Integer.parseInt(Player2_health) < 0){
-
             JukeBox.stop("battle_background");
-<<<<<<< HEAD
-
             JukeBox.stop("barrel_move");
             JukeBox.stop("move");
             JukeBox.play("big_explosion");
-            JukeBox.play("explosion");
-
-            JukeBox.play("explosion");
-
-            JukeBox.play("explosion");
-
-            JukeBox.play("explosion");
-
-=======
->>>>>>> parent of d99e091... Bug fix ve mermi modifiye edilmek Ã¼zere eklendi.
-            JukeBox.play("explosion");
             if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player1_health) < 0){who_win = 1;}
             else {who_win = 2;}
             gsm.setState(GameStateManager.FINISH);
@@ -134,50 +124,72 @@ public class Play extends GameState{
     }
 
     public void draw(Graphics2D g) {
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 14));
-        if(fire != 1) {
-            g.drawImage(playing_image, 0, 0, null);
-            g.drawImage(map_area, 0, 248, null);
-            g.drawImage(Player1, 550, 25, null);
-            g.drawImage(Player2, 550, 45, null);
-            g.drawString(Player1_health,635,39);
-            g.drawString(Player2_health, 635, 59);
-            tank1.draw(g);
-            tank2.draw(g);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+        g.drawImage(playing_image, 0, 0, null);
+        g.drawImage(map_area, 0, 248, null);
+        g.drawImage(Player1, 550, 25, null);
+        g.drawImage(Player2, 550, 45, null);
+        g.drawString(Player1_health, 635, 39);
+        g.drawString(Player2_health, 635, 59);
+        tank1.draw(g);
+        tank2.draw(g);
+
+        if(change_sira && !Bullets.bullet_is_moving){
+            if(sira == 1){sira=2;}
+            else {sira=1;}
+            change_sira = false;
         }
 
         if(sira == 1){
+
+            bullets.draw(g,tank1);
             tank1.move(g);
+
+            int previus_fire = fire; //fire deðerinin deðiþip deðiþmeyeceðini anlamak için burda o deðeri alýyoruz.
+
             if(fire==1){
-                if(bullets.fire_bullet_1(g,tank1)){fire=0;sira=2;}
+                bullets.fire_bullet_1(g,tank1);
+                fire = 0;
+            }
+
+            if(previus_fire != fire){ //fire deðeri deðiþmiþ demektir yani mermi ateþ aldý.
+                change_sira = true;//sirayi deðþtirmek için komut verdik;
             }
 
         }
         else {
+            bullets.draw(g,tank2);
             tank2.move(g);
+            int previus_fire = fire; //fire deðerinin deðiþip deðiþmeyeceðini anlamak için burda o deðeri alýyoruz.
+
             if(fire==1){
-                if(bullets.fire_bullet_1(g, tank2)){fire=0;sira=1;}
+                bullets.fire_bullet_1(g,tank2);
+                fire = 0;
+            }
+
+            if(previus_fire != fire){ //fire deðeri deðiþmiþ demektir yani mermi ateþ aldý.
+                change_sira = true;//sirayi deðþtirmek için komut verdik;
             }
         }
     }
 
     public void handleInput() {
 
-        if(Keys.isPressed(Keys.SPACE)){
+        if(Keys.isPressed(Keys.SPACE) && !Bullets.bullet_is_moving){
 
-            if(fire!=1){fire=1;}
+            if(fire==0){fire=1;}
             Integer health = Integer.parseInt(Player1_health);
             health--;
             Player1_health = health.toString();
         }
 
-        if(Keys.isDown(Keys.UP)){
+        if(Keys.isDown(Keys.UP) && !Bullets.bullet_is_moving){
             if(!JukeBox.isPlaying("barrel_move")){JukeBox.play("barrel_move");}
             if(sira==1){tank1.set_Up();}
             else {tank2.set_Up();}
         }
 
-        else if(Keys.isDown(Keys.DOWN)){
+        else if(Keys.isDown(Keys.DOWN) && !Bullets.bullet_is_moving){
             if(!JukeBox.isPlaying("barrel_move")){JukeBox.play("barrel_move");}
             if(sira==1){tank1.set_Down();}
             else {tank2.set_Down();}
@@ -188,13 +200,13 @@ public class Play extends GameState{
 
         }
 
-        if (Keys.isDown(Keys.LEFT)){
+        if (Keys.isDown(Keys.LEFT) && !Bullets.bullet_is_moving){
             if(!JukeBox.isPlaying("move")){JukeBox.play("move");}
             if(sira==1){tank1.set_Left(tank2);}
             else {tank2.set_Left(tank1);}
         }
 
-        else if (Keys.isDown(Keys.RIGHT)){
+        else if (Keys.isDown(Keys.RIGHT) && !Bullets.bullet_is_moving){
             if(!JukeBox.isPlaying("move")){JukeBox.play("move");}
             if(sira==1){tank1.set_Right(tank2);}
             else {tank2.set_Right(tank1);}
