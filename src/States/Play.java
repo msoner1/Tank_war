@@ -112,14 +112,13 @@ public class Play extends GameState{
         tank1.update();
         tank2.update();
         if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player2_health) == 0 || Integer.parseInt(Player1_health) < 0 || Integer.parseInt(Player2_health) < 0){
+
             JukeBox.stop("battle_background");
-<<<<<<< HEAD
             JukeBox.stop("barrel_move");
             JukeBox.stop("move");
             JukeBox.play("big_explosion");
-=======
             JukeBox.play("explosion");
->>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
+
             if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player1_health) < 0){who_win = 1;}
             else {who_win = 2;}
             gsm.setState(GameStateManager.FINISH);
