@@ -3,7 +3,9 @@ package Main;
 import javax.swing.*;
 
 /**
- * Created by sono on 18.11.2015.
+ * Created by soner on 18.11.2015.
+ *
+ * main fonksiyonumuz burada yer alýr ve ana baþlangýç classýmýz bu classdýr.
  */
 public class Start {
 
@@ -20,6 +22,7 @@ public class Start {
         window.setLocationRelativeTo(null); //pencereyi ortalar
         window.setVisible(true); //pencereyi gösterir.
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 
 }

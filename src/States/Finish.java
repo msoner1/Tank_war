@@ -48,7 +48,7 @@ public class Finish extends GameState {
     public void update() {
         handleInput();
 
-        if(developer_position_y != -1580 ){developer_position_y--;}
+        if(developer_position_y != -2080 ){developer_position_y--;}
     }
 
     @Override
