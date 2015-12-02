@@ -59,8 +59,45 @@
           </provider>
         </entry>
       </file>
+<<<<<<< HEAD
       <file leaf-file-name="Entity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Entities/Entity.java">
+=======
+      <file leaf-file-name="Play.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/States/Play.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Intro.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/States/Intro.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0">
+              <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Finish.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/States/Finish.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.6340509">
+              <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="GamePanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Main/GamePanel.java">
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="32" column="18" selection-start-line="32" selection-start-column="18" selection-end-line="32" selection-end-column="18" />
@@ -104,6 +141,10 @@
         <option value="$PROJECT_DIR$/src/Entities/Bullets.java" />
         <option value="$PROJECT_DIR$/src/Entities/Tank.java" />
         <option value="$PROJECT_DIR$/src/States/Play.java" />
+<<<<<<< HEAD
+=======
+        <option value="$PROJECT_DIR$/src/States/Finish.java" />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
       </list>
     </option>
   </component>
@@ -150,9 +191,14 @@
       <sortByType />
     </navigator>
     <panes>
+<<<<<<< HEAD
       <pane id="Scratches" />
       <pane id="PackagesPane" />
       <pane id="Scope" />
+=======
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -263,6 +309,10 @@
           </PATH>
         </subPane>
       </pane>
+<<<<<<< HEAD
+=======
+      <pane id="Scratches" />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -587,6 +637,7 @@
       <workItem from="1448731659780" duration="1333000" />
       <workItem from="1448746314514" duration="4293000" />
       <workItem from="1448802221270" duration="6291000" />
+<<<<<<< HEAD
       <workItem from="1448820021245" duration="3509000" />
       <workItem from="1448830455170" duration="3895000" />
       <workItem from="1448870915123" duration="3005000" />
@@ -597,11 +648,17 @@
       <workItem from="1449003065251" duration="7597000" />
       <workItem from="1449070557531" duration="667000" />
       <workItem from="1449080562773" duration="5706000" />
+=======
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
+<<<<<<< HEAD
     <option name="totallyTimeSpent" value="204506000" />
+=======
+    <option name="totallyTimeSpent" value="163528000" />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -1004,6 +1061,7 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/src/Entities/Entity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1019,23 +1077,51 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/States/Play.java">
+=======
+    <entry file="file://$PROJECT_DIR$/src/Entities/Tank.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.48927876">
-          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="50" column="0" selection-start-line="50" selection-start-column="0" selection-end-line="50" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/States/Intro.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="4" selection-start-line="16" selection-start-column="4" selection-end-line="16" selection-end-column="31" />
+          <folding />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/States/Play.java">
+      <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
+        <state vertical-scroll-proportion="0.48927876">
+          <caret line="139" column="32" selection-start-line="139" selection-start-column="32" selection-end-line="139" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+=======
+        <state vertical-scroll-proportion="0.0">
+          <caret line="54" column="27" selection-start-line="54" selection-start-column="27" selection-end-line="54" selection-end-column="27" />
+          <folding />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Entities/Tank.java">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< HEAD
         <state vertical-scroll-proportion="0.76023394">
           <caret line="202" column="13" selection-start-line="202" selection-start-column="13" selection-end-line="202" selection-end-column="13" />
+=======
+        <state vertical-scroll-proportion="0.6340509">
+          <caret line="69" column="33" selection-start-line="69" selection-start-column="33" selection-end-line="69" selection-end-column="33" />
+>>>>>>> dc369482040c74a6a32790392c9072b3e4b498b9
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
