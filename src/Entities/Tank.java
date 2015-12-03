@@ -188,7 +188,7 @@ public class Tank extends Entity {
         if(!Bullets.bullet_is_moving) {
             if (!Keys.isDown(Keys.LEFT) && !Keys.isDown(Keys.RIGHT)) {
             } else {
-                super.set_animation(g, tank_sprites, animation_frame_speed, tank_back_cordinate, map_cordinates_y[tank_front_cordinate] - height);
+                super.set_animation(0,g, tank_sprites, tank_back_cordinate, map_cordinates_y[tank_front_cordinate] - height);
             }
         }
     }

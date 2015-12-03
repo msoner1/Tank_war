@@ -124,13 +124,16 @@ public class Play extends GameState{
     }
 
     public void draw(Graphics2D g) {
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 18));
+
+        g.setFont(new Font("Serif", Font.PLAIN, 18));
+
         g.drawImage(playing_image, 0, 0, null);
         g.drawImage(map_area, 0, 248, null);
         g.drawImage(Player1, 550, 25, null);
         g.drawImage(Player2, 550, 45, null);
         g.drawString(Player1_health, 635, 39);
         g.drawString(Player2_health, 635, 59);
+
         tank1.draw(g);
         tank2.draw(g);
 
