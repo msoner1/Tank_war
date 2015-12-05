@@ -1,8 +1,6 @@
 package Entities;
 
 import Manager.Keys;
-import States.Play;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
@@ -31,13 +29,12 @@ public class Tank extends Entity {
     private int[] map_cordinates_x;
     private int[] map_cordinates_y;
 
-    private int tank_front_cordinate;
-    private int tank_back_cordinate;
+    protected int tank_front_cordinate;
+    protected int tank_back_cordinate;
 
     public int barrel_front_cordinate_x;
     public int barrel_front_cordinate_y;
 
-    private int animation_frame_speed = 3;
 
     public Tank(int[] map_cordinates_x,int[] map_cordinates_y){
 
@@ -53,7 +50,25 @@ public class Tank extends Entity {
         tank_sprites = super.set_frames(tank_sprite_sheet,width,height);
         Random random = new Random();
 
-        tank_front_cordinate = random.nextInt(600)+50; //Tankýn belireceði kordinat
+        tank_front_cordinate = random.nextInt(50)+50; //Tankýn belireceði kordinat
+
+
+    }
+    public Tank(int[] map_cordinates_x,int[] map_cordinates_y ,Tank tank){
+
+        this.map_cordinates_x =map_cordinates_x;
+        this.map_cordinates_y=map_cordinates_y;
+        try {
+            this.tank_sprite_sheet = ImageIO.read(new FileInputStream("img/entities/tank.png"));
+            this.barrel = super.set_frames(ImageIO.read(new FileInputStream("img/entities/barrel.png")),46,46);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        tank_sprites = super.set_frames(tank_sprite_sheet,width,height);
+        Random random = new Random();
+
+        tank_front_cordinate = random.nextInt(50)+600; //2. Tankýn belireceði kordinat
 
 
     }
@@ -195,9 +210,17 @@ public class Tank extends Entity {
     public void set_Right(Tank tank){
 
             if (map_cordinates_x[720] < barrel_front_cordinate_x || map_cordinates_x[720] < tank_back_cordinate || map_cordinates_x[720] < tank_front_cordinate) {
-            } else {
-                if (barrel_front_cordinate_x == tank.tank_back_cordinate) {
-                } else {
+            }
+            else {
+
+                if(tank.tank_front_cordinate > tank_front_cordinate){
+
+                    if(barrel_front_cordinate_x > tank.tank_back_cordinate || tank_front_cordinate-30 > tank.barrel_front_cordinate_x || tank_front_cordinate > tank.tank_back_cordinate || barrel_front_cordinate_x > tank.barrel_front_cordinate_x ){}
+                    else{
+                        tank_front_cordinate+=tank_speed;
+                    }
+                }
+                else {
                     tank_front_cordinate+=tank_speed;
                 }
             }
@@ -205,12 +228,19 @@ public class Tank extends Entity {
     }
     public void set_Left(Tank tank){
             if (map_cordinates_x[0] > barrel_front_cordinate_x || map_cordinates_x[0] > tank_back_cordinate || map_cordinates_x[0] > tank_front_cordinate) {
-            } else {
-                if (tank_back_cordinate == tank.barrel_front_cordinate_x) {
+            }
+            else {
+                if(tank.tank_front_cordinate < tank_front_cordinate){
+
+                    if(barrel_front_cordinate_x < tank.barrel_front_cordinate_x-10 || tank_back_cordinate < tank.barrel_front_cordinate_x || tank_back_cordinate < tank.tank_front_cordinate || barrel_front_cordinate_x < tank.tank_back_cordinate + 10 ){}
+                    else{
+                        tank_front_cordinate-=tank_speed;
+                    }
                 }
                 else {
                     tank_front_cordinate-=tank_speed;
                 }
+
             }
 
     }

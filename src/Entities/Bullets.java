@@ -23,6 +23,10 @@ public class Bullets extends Entity{
     public int bullet_1_x_cordinate;
     public int bullet_1_y_cordinate;
 
+    public static double bullet_1_speed = 10;
+    private final double gravity = 2;
+    private double gravity_loop = 1;
+
     public static boolean bullet_is_moving;
 
     private final int bullet_effect_width = 24;
@@ -30,6 +34,8 @@ public class Bullets extends Entity{
 
     private final int explosion_effect_width = 73;
     private final int explosion_effect_height = 53;
+
+    private int explosion_effect_frame_loop = 0;//patlama animasyonunu bir kere oyatmaya yarayacak deðiþken
 
 
     public Bullets(){
@@ -56,66 +62,41 @@ public class Bullets extends Entity{
         bullet_is_moving=true;
 
         for (int i = 0; i<12; i++){
+
             super.set_animation(1,g,bullet_effects_sprites,tank.barrel_front_cordinate_x,tank.barrel_front_cordinate_y-10);
         }
 
     }
-    public void draw(Graphics2D g , Tank tank){
+    public void draw(Graphics2D g , Tank tank_fire, Tank tank_victim){
+
+        int tank_barrel_rotate;
+        tank_barrel_rotate = 10 * tank_fire.barrel_rotate;
+
 
         if(bullet_is_moving){
+            explosion_effect_frame_loop = 0;
+            bullet_1_x_cordinate += bullet_1_speed * Math.cos(Math.toRadians(tank_barrel_rotate));
+            bullet_1_y_cordinate -= bullet_1_speed * Math.sin(Math.toRadians(tank_barrel_rotate)) - gravity*gravity_loop;
 
-           if(tank.barrel_rotate == 0){
-                bullet_1_x_cordinate+=10;
-                bullet_1_y_cordinate+=1;
-            }
-           else if(tank.barrel_rotate == 1){
-
-               if(tank.barrel_front_cordinate_x + 150 > bullet_1_x_cordinate){
-                   bullet_1_x_cordinate+=15;
-                   bullet_1_y_cordinate-=3;
-               }
-               else {
-                   if(tank.barrel_front_cordinate_x + 200 > bullet_1_x_cordinate){
-                       bullet_1_x_cordinate+=10;
-                       bullet_1_y_cordinate-=1;
-                   }
-                   else {
-                       if(tank.barrel_front_cordinate_x + 250 > bullet_1_x_cordinate){
-                           bullet_1_x_cordinate+=5;
-                           bullet_1_y_cordinate+=1;
-                       }
-                       else {
-                           bullet_1_x_cordinate+=10;
-                           bullet_1_y_cordinate+=3;
-                       }
-
-                   }
-               }
-           }
-           else if(tank.barrel_rotate == 2){
-               bullet_1_x_cordinate+=10;
-               bullet_1_y_cordinate+=1;
-           }
-           else if(tank.barrel_rotate == 3){
-               bullet_1_x_cordinate+=10;
-               bullet_1_y_cordinate+=10;
-           }
-            else if(tank.barrel_rotate == 18){
-                bullet_1_x_cordinate-=10;
-                bullet_1_y_cordinate+=1;
-            }
-
+            gravity_loop+=0.1;
 
             g.drawImage(bullet_1,bullet_1_x_cordinate,bullet_1_y_cordinate,null);
 
-            if(bullet_1_x_cordinate > 720 || bullet_1_x_cordinate < 0 || bullet_1_y_cordinate > 420 || bullet_1_y_cordinate == Map.cordinates_y[bullet_1_y_cordinate]){//bullet_1_y kordinatý
-            JukeBox.play("explosion");
-            bullet_is_moving = false;
-        }
+            if(bullet_1_x_cordinate > 750 || bullet_1_x_cordinate < -30 || bullet_1_y_cordinate < -30 || bullet_1_y_cordinate > Map.cordinates_y[bullet_1_y_cordinate+30]){//bullet_1_y kordinatý
+
+                JukeBox.play("explosion");
+                bullet_is_moving = false;
+                gravity_loop=1;
+            }
+
 
         }
         else {
-            super.set_animation(2,g,explosion_effect_sprites,bullet_1_x_cordinate-explosion_effect_width/2,bullet_1_y_cordinate-explosion_effect_height);
+            if(explosion_effect_frame_loop < 21){
+                explosion_effect_frame_loop++;
+                super.set_animation(2, g, explosion_effect_sprites, bullet_1_x_cordinate - explosion_effect_width / 2, bullet_1_y_cordinate - explosion_effect_height);
+            }
+
 
         }
     }

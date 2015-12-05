@@ -9,9 +9,12 @@ import Map.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
+import java.awt.geom.Arc2D;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
 import java.util.Random;
 
 /**
@@ -44,6 +47,8 @@ public class Play extends GameState{
     private int[] map_cordinates_y;
 
     private int random_area;
+
+    NumberFormat formatter = new DecimalFormat("#0.0");
 
     public Play(GameStateManager gsm) {
         super(gsm);
@@ -98,7 +103,7 @@ public class Play extends GameState{
         }
 
         tank1 = new Tank(map_cordinates_x,map_cordinates_y);
-        tank2 = new Tank(map_cordinates_x,map_cordinates_y);
+        tank2 = new Tank(map_cordinates_x,map_cordinates_y,tank1);
 
         bullets = new Bullets();
 
@@ -133,6 +138,8 @@ public class Play extends GameState{
         g.drawImage(Player2, 550, 45, null);
         g.drawString(Player1_health, 635, 39);
         g.drawString(Player2_health, 635, 59);
+        g.drawString("Your Bullet Speed = ", 10, 39);
+        g.drawString(formatter.format(Bullets.bullet_1_speed), 160, 39);
 
         tank1.draw(g);
         tank2.draw(g);
@@ -145,7 +152,7 @@ public class Play extends GameState{
 
         if(sira == 1){
 
-            bullets.draw(g,tank1);
+            bullets.draw(g,tank1,tank2);
             tank1.move(g);
 
             int previus_fire = fire; //fire deðerinin deðiþip deðiþmeyeceðini anlamak için burda o deðeri alýyoruz.
@@ -161,7 +168,7 @@ public class Play extends GameState{
 
         }
         else {
-            bullets.draw(g,tank2);
+            bullets.draw(g,tank2,tank1);
             tank2.move(g);
             int previus_fire = fire; //fire deðerinin deðiþip deðiþmeyeceðini anlamak için burda o deðeri alýyoruz.
 
@@ -178,6 +185,19 @@ public class Play extends GameState{
 
     public void handleInput() {
 
+        if(Keys.isDown(Keys.ADD) && !Bullets.bullet_is_moving){
+            if(Bullets.bullet_1_speed < 20){
+                Bullets.bullet_1_speed+=0.1;
+            }
+
+
+        }
+        if(Keys.isDown(Keys.SUBTRACT) && !Bullets.bullet_is_moving){
+
+            if(Bullets.bullet_1_speed > 3){
+                Bullets.bullet_1_speed-=0.1;
+            }
+        }
         if(Keys.isPressed(Keys.SPACE) && !Bullets.bullet_is_moving){
 
             if(fire==0){fire=1;}

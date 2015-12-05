@@ -6,7 +6,7 @@ import java.awt.event.KeyEvent;
  * Created by soner on 20.11.2015.
  */
 public class Keys {
-    public static final int NUM_KEYS = 7;
+    public static final int NUM_KEYS = 9;
 
     public static boolean keyState[] = new boolean[NUM_KEYS];
     public static boolean prevKeyState[] = new boolean[NUM_KEYS];
@@ -18,6 +18,8 @@ public class Keys {
     public static int SPACE = 4;
     public static int ENTER = 5;
     public static int V = 6;//silah deðiþtirme tuþu
+    public static int ADD = 7;
+    public static int SUBTRACT = 8;
 
     public static void keySet(int i, boolean b) {
         if(i == KeyEvent.VK_UP) keyState[UP] = b;
@@ -27,6 +29,8 @@ public class Keys {
         else if(i == KeyEvent.VK_SPACE) keyState[SPACE] = b;
         else if(i == KeyEvent.VK_ENTER) keyState[ENTER] = b;
         else if(i == KeyEvent.VK_V) keyState[V] = b;
+        else if(i == KeyEvent.VK_ADD) keyState[ADD] = b;
+        else if(i == KeyEvent.VK_SUBTRACT) keyState[SUBTRACT] = b;
     }
 
     public static void update() {
