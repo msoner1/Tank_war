@@ -52,7 +52,7 @@ public class Finish extends GameState {
     }
 
     @Override
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g , Graphics2D g2) {
         if(Play.who_win == 1){
             g.drawImage(player1_win,0,0,null);
         }

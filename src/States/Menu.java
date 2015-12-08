@@ -57,7 +57,7 @@ public class Menu extends GameState{
     }
 
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g , Graphics2D g2) {
         g.drawImage(background_img,0,0,null);
         g.drawImage(play_button_img,268,200,null);
         g.drawImage(exit_button_img,268,260,null);

@@ -16,6 +16,6 @@ public abstract class GameState {
 
     public abstract void init();
     public abstract void update();
-    public abstract void draw(Graphics2D g);
+    public abstract void draw(Graphics2D g , Graphics2D g2);
     public abstract void handleInput();
 }

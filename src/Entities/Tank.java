@@ -21,6 +21,7 @@ public class Tank extends Entity {
     private final int height = 23;
 
     private final int tank_speed = 1;
+    public int tank_health = 100;
 
     public int barrel_rotate = 0;
     private int barrel_x_cordinate;
@@ -51,6 +52,7 @@ public class Tank extends Entity {
         Random random = new Random();
 
         tank_front_cordinate = random.nextInt(50)+50; //Tankýn belireceði kordinat
+        tank_health = 100;
 
 
     }
@@ -74,7 +76,7 @@ public class Tank extends Entity {
     }
     public void update(){
         tank_back_cordinate = tank_front_cordinate-width;
-        barrel_y_cordinate = map_cordinates_y[tank_front_cordinate]-63;
+        barrel_y_cordinate = map_cordinates_y[tank_back_cordinate+width/2]-63;
 
         if(barrel_rotate == 0){
             barrel_x_cordinate = tank_back_cordinate + 28;
@@ -194,7 +196,7 @@ public class Tank extends Entity {
     }
 
     public void draw(Graphics2D g){
-        g.drawImage(tank_sprites[0], tank_back_cordinate, map_cordinates_y[tank_front_cordinate] - height, null);
+        g.drawImage(tank_sprites[0], tank_back_cordinate, map_cordinates_y[tank_back_cordinate+width/2] - height, null);
         draw_barrel(g);
     }
 
@@ -203,7 +205,7 @@ public class Tank extends Entity {
         if(!Bullets.bullet_is_moving) {
             if (!Keys.isDown(Keys.LEFT) && !Keys.isDown(Keys.RIGHT)) {
             } else {
-                super.set_animation(0,g, tank_sprites, tank_back_cordinate, map_cordinates_y[tank_front_cordinate] - height);
+                super.set_animation(0,g, tank_sprites, tank_back_cordinate, map_cordinates_y[tank_back_cordinate+width/2] - height);
             }
         }
     }

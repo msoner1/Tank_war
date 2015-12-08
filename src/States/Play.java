@@ -9,7 +9,6 @@ import Map.*;
 
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.geom.Arc2D;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,13 +25,14 @@ public class Play extends GameState{
     private BufferedImage playing_image;
     private BufferedImage map_area;
 
+    private Polygon map_poly;
+
+    private BufferedImage dot;
+
     private BufferedImage Player1;
     private BufferedImage Player2;
 
     public static int who_win=0;
-
-    public static String Player1_health = "100";
-    public static String Player2_health = "100";
 
     private Tank tank1;
     private Tank tank2;
@@ -44,7 +44,7 @@ public class Play extends GameState{
     private int fire = 0;
 
     private int[] map_cordinates_x;
-    private int[] map_cordinates_y;
+    public static int[] map_cordinates_y;
 
     private int random_area;
 
@@ -57,18 +57,17 @@ public class Play extends GameState{
 
     public void init() {
 
-        Player1_health = "100";
-        Player2_health = "100";
-
         Random random = new Random();
-        random_area = random.nextInt(3)+1;//minumum 1 max 3
+        random_area = random.nextInt(2)+2;//minumum 1 max 2
 
         //load music
+
         JukeBox.load("music/playing_back.mp3", "battle_background");
         JukeBox.setVolume("battle_background", -10);
         JukeBox.loop("battle_background");
 
         //load sfx
+
         JukeBox.load("sfx/fire.mp3", "fire");
         JukeBox.load("sfx/tank_move.mp3", "move");
         JukeBox.load("sfx/barrel_move.mp3", "barrel_move");
@@ -83,15 +82,12 @@ public class Play extends GameState{
             map_area = ImageIO.read(new FileInputStream("img/playing_areas/map"+random_area+".png"));
             Player1 = ImageIO.read(new FileInputStream("img/player1.png"));
             Player2 = ImageIO.read(new FileInputStream("img/player2.png"));
+            dot = ImageIO.read(new FileInputStream("img/dot.png"));
+
         } catch (IOException e) {
             e.printStackTrace();
         }
-        if (random_area == 1){
-            Map1 map = new Map1();
-            map_cordinates_x = map.get_map_cordinates_x();
-            map_cordinates_y = map.get_map_cordinates_y();
-        }
-        else if (random_area == 2){
+        if (random_area == 2){
             Map2 map = new Map2();
             map_cordinates_x = map.get_map_cordinates_x();
             map_cordinates_y = map.get_map_cordinates_y();
@@ -101,7 +97,6 @@ public class Play extends GameState{
             map_cordinates_x = map.get_map_cordinates_x();
             map_cordinates_y = map.get_map_cordinates_y();
         }
-
         tank1 = new Tank(map_cordinates_x,map_cordinates_y);
         tank2 = new Tank(map_cordinates_x,map_cordinates_y,tank1);
 
@@ -112,32 +107,35 @@ public class Play extends GameState{
     }
 
     public void update() {
-
         handleInput();
         tank1.update();
         tank2.update();
-        if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player2_health) == 0 || Integer.parseInt(Player1_health) < 0 || Integer.parseInt(Player2_health) < 0){
+        if(tank1.tank_health == 0 || tank2.tank_health == 0 || tank1.tank_health < 0 || tank2.tank_health < 0){
             JukeBox.stop("battle_background");
             JukeBox.stop("barrel_move");
             JukeBox.stop("move");
             JukeBox.play("big_explosion");
-            if(Integer.parseInt(Player1_health) == 0 || Integer.parseInt(Player1_health) < 0){who_win = 1;}
-            else {who_win = 2;}
+            if(tank1.tank_health == 0 || tank1.tank_health < 0){who_win = 2;}
+            else {who_win = 1;}
             gsm.setState(GameStateManager.FINISH);
         }
 
+        map_poly = new Polygon(map_cordinates_x,map_cordinates_y,722);
     }
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g , Graphics2D g2) {
 
         g.setFont(new Font("Serif", Font.PLAIN, 18));
+        g2.setColor(Color.BLACK);
 
         g.drawImage(playing_image, 0, 0, null);
-        g.drawImage(map_area, 0, 248, null);
+        g2.drawImage(map_area,0,248,null);
+       // g2.drawPolygon(map_poly);
+
         g.drawImage(Player1, 550, 25, null);
         g.drawImage(Player2, 550, 45, null);
-        g.drawString(Player1_health, 635, 39);
-        g.drawString(Player2_health, 635, 59);
+        g.drawString(String.valueOf(tank1.tank_health), 635, 39);
+        g.drawString(String.valueOf(tank2.tank_health), 635, 59);
         g.drawString("Your Bullet Speed = ", 10, 39);
         g.drawString(formatter.format(Bullets.bullet_1_speed), 160, 39);
 
@@ -152,6 +150,8 @@ public class Play extends GameState{
 
         if(sira == 1){
 
+            g.drawImage(dot, 530, 25, 15, 15, null); //sýra belirten nokta
+
             bullets.draw(g,tank1,tank2);
             tank1.move(g);
 
@@ -163,22 +163,25 @@ public class Play extends GameState{
             }
 
             if(previus_fire != fire){ //fire deðeri deðiþmiþ demektir yani mermi ateþ aldý.
-                change_sira = true;//sirayi deðþtirmek için komut verdik;
+                change_sira = true;//sirayi deðiþtirmek için komut verdik;
             }
 
         }
         else {
+
+            g.drawImage(dot, 530, 45, 15, 15, null); //sýra belirten nokta
+
             bullets.draw(g,tank2,tank1);
             tank2.move(g);
-            int previus_fire = fire; //fire deðerinin deðiþip deðiþmeyeceðini anlamak için burda o deðeri alýyoruz.
+            int previus_fire = fire;  //fire deðerinin deðiþip deðiþmeyeceðini anlamak için burda o deðeri alýyoruz.
 
             if(fire==1){
                 bullets.fire_bullet_1(g,tank2);
                 fire = 0;
             }
 
-            if(previus_fire != fire){ //fire deðeri deðiþmiþ demektir yani mermi ateþ aldý.
-                change_sira = true;//sirayi deðþtirmek için komut verdik;
+            if(previus_fire != fire){  //fire deðeri deðiþmiþ demektir yani mermi ateþ aldý.
+                change_sira = true;    //sirayi deðiþtirmek için komut verdik.
             }
         }
     }
@@ -201,9 +204,6 @@ public class Play extends GameState{
         if(Keys.isPressed(Keys.SPACE) && !Bullets.bullet_is_moving){
 
             if(fire==0){fire=1;}
-            Integer health = Integer.parseInt(Player1_health);
-            health--;
-            Player1_health = health.toString();
         }
 
         if(Keys.isDown(Keys.UP) && !Bullets.bullet_is_moving){

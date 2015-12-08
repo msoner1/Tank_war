@@ -31,6 +31,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
     // grafik çizimlerinde kullanýlan deðiþkenler
     private BufferedImage image;
     private Graphics2D g;
+    private Graphics2D g2;
 
     // game state manager
     private GameStateManager gsm;
@@ -93,6 +94,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
         running = true;
         image = new BufferedImage(WIDTH, HEIGHT, 1);
         g = (Graphics2D) image.getGraphics();
+        g2 = (Graphics2D) image.getGraphics();
         gsm = new GameStateManager();
     }
 
@@ -104,7 +106,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 
     // draws game
     private void draw() {
-        gsm.draw(g);
+        gsm.draw(g,g2);
     }
 
     // copy buffer to screen

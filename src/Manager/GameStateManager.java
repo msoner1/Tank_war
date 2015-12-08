@@ -68,10 +68,10 @@ public class GameStateManager {
 
     }
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g , Graphics2D g2) {
 
         if(gameStates[currentState] != null) {
-            gameStates[currentState].draw(g);
+            gameStates[currentState].draw(g,g2);
         }
     }
 }

@@ -57,7 +57,7 @@ public class Intro extends GameState {
         }
     }
 
-    public void draw(Graphics2D g) {
+    public void draw(Graphics2D g , Graphics2D g2) {
         g.setColor(Color.BLACK);
         g.fillRect(0, 0, GamePanel.WIDTH, GamePanel.HEIGHT);
         g.drawImage(logo, 0, 0, GamePanel.WIDTH, GamePanel.HEIGHT, null);
