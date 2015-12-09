@@ -17,7 +17,7 @@ public class Keys {
     public static int RIGHT = 3;
     public static int SPACE = 4;
     public static int ENTER = 5;
-    public static int V = 6;//silah deðiþtirme tuþu
+    public static int V = 6;
     public static int ADD = 7;
     public static int SUBTRACT = 8;
 

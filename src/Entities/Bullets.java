@@ -9,9 +9,14 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
+import java.util.Random;
 
 /**
- * Created by soner on 22.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Mermi varlıklarını temsil eder ve mermi çarpışmalarını algılar.
  */
 public class Bullets extends Entity{
 
@@ -36,14 +41,12 @@ public class Bullets extends Entity{
     private final int explosion_effect_width = 73;
     private final int explosion_effect_height = 53;
 
-    private Polygon map_poly;
     private Rectangle tank;
 
-    private int explosion_effect_frame_loop = 0;//patlama animasyonunu bir kere oyatmaya yarayacak de�i�ken
+    private int explosion_effect_frame_loop = 0; //patlama animasyonunu bir kere oyatmaya yarayacak değişken
 
 
     public Bullets(){
-
 
         bullet_1_x_cordinate = 1000;
         bullet_1_y_cordinate = 1000;
@@ -60,8 +63,6 @@ public class Bullets extends Entity{
         bullet_effects_sprites = super.set_frames(bullet_effect_sprite_sheet,bullet_effect_width,bullet_effect_height);
         explosion_effect_sprites = super.set_frames(explosion_effect_sprite_sheet,explosion_effect_width,explosion_effect_height);
 
-        map_poly = new Polygon(Map.cordinates_x,Play.map_cordinates_y,Map.cordinates_x.length);
-
     }
 
     public void fire_bullet_1(Graphics2D g, Tank tank){
@@ -70,8 +71,6 @@ public class Bullets extends Entity{
         bullet_1_y_cordinate = tank.barrel_front_cordinate_y;
         JukeBox.play("fire");
         bullet_is_moving=true;
-
-        map_poly = new Polygon(Map.cordinates_x,Play.map_cordinates_y,Map.cordinates_x.length);
 
         for (int i = 0; i<12; i++){
 
@@ -96,14 +95,28 @@ public class Bullets extends Entity{
 
             g.drawImage(bullet_1,bullet_1_x_cordinate,bullet_1_y_cordinate,null);
 
-            if(bullet_1_x_cordinate > 750 || bullet_1_x_cordinate < -30 || bullet_1_y_cordinate < -30 || map_poly.intersects(bullet_1_x_cordinate,bullet_1_y_cordinate,1,1)  || tank.intersects(bullet_1_x_cordinate,bullet_1_y_cordinate,5,5)){//bullet_1_y kordinat�
+            if(bullet_1_x_cordinate > 750 || bullet_1_x_cordinate < -30 || bullet_1_y_cordinate < -30 || Play.map_poly.intersects(bullet_1_x_cordinate,bullet_1_y_cordinate,1,1)  || tank.intersects(bullet_1_x_cordinate,bullet_1_y_cordinate,5,5)){//bullet_1_y kordinatı
+
+                /**
+                 * @param random_fall merminin açacağı deliğin derinliğini tutan değişkendir.
+                 * @param random_fall_optimization merminin açacağı deliğin çok keskin olmasını engellemek ve o deliğe tırtıklı doku kazandırmak için oluşturulmuş değişkendir.
+                 */
 
                 JukeBox.play("explosion");
                 bullet_is_moving = false;
                 gravity_loop=1;
-                if(map_poly.intersects(bullet_1_x_cordinate,bullet_1_y_cordinate,1,1) && bullet_1_x_cordinate < 720){
-                    for(int i = 0;i<50;i++) {
-                        Play.map_cordinates_y[bullet_1_x_cordinate+i] = Play.map_cordinates_y[bullet_1_x_cordinate+i] + 15;
+                if(Play.map_poly.intersects(bullet_1_x_cordinate,bullet_1_y_cordinate,1,1) && bullet_1_x_cordinate < 720){
+                    Random r = new Random();
+                    int random_fall = r.nextInt(10);
+                    for(int i=0;i<15;i++){
+                        int random_fall_optimization = r.nextInt(3);
+                        if(i == 14){
+                            Play.map_cordinates_y[bullet_1_x_cordinate] = Play.map_cordinates_y[bullet_1_x_cordinate] + random_fall;
+                        }
+                        else{
+                            Play.map_cordinates_y[bullet_1_x_cordinate-i] = Play.map_cordinates_y[bullet_1_x_cordinate] + random_fall+random_fall_optimization-i;
+                            Play.map_cordinates_y[bullet_1_x_cordinate+i] = Play.map_cordinates_y[bullet_1_x_cordinate] + random_fall+random_fall_optimization-i;
+                        }
                     }
                 }
 

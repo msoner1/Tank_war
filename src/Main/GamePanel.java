@@ -11,39 +11,47 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * Created by soner on 18.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Mermi varlıklarını temsil eder ve mermi çarpışmalarını algılar.
  */
 public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListener,MouseMotionListener {
 
-    // �l��ler
-    //Height pencere y�ksekli�i
-    //Width pencere geni�li�i
+    /**
+    * @param WIDTH oluşturulan pencere genişliğimizdir.
+    * @param HEIGHT oluşturulan pencere yüksekliğimizdir.
+    * @param running oyun döngüsünün sürekli dönmesini sağlayan değişken false değeri alması durumunda döngü işlemez.
+    * @param FPS oyun döngüsünün yenilenme(döngü) süresini azaltan yada artıran değişken.Bu değişken artıkça oyun döngüsü hızlanır.Bakınız:(Frame Per Second)
+    * @param TARGET_TIME 1 saniyeyi(1000 ms) FPS değişkenine bölerek oyun döngüsünü kaç milisaniye bekleteceğini anlayan değişken.
+     */
 
     public static final int WIDTH = 720;
     public static final int HEIGHT = 420;
 
-    //oyun d�ng�s�nde kullan�lacak de�i�kenler.
+    //oyun döngüsünde kullanılacak değişkenler.
     private Thread thread;
     private boolean running;
     private final int FPS = 30;
     private final int TARGET_TIME = 1000 / FPS;
 
-    // grafik �izimlerinde kullan�lan de�i�kenler
+    // grafik çizimlerinde kullanılan değişkenler
     private BufferedImage image;
     private Graphics2D g;
     private Graphics2D g2;
 
-    // game state manager
+    // sahnelerimizi kontrol eden sınıf
     private GameStateManager gsm;
 
 
-    public GamePanel(){ //Jpanel yarat�yoruz.kurucumuz
+    public GamePanel(){ //Jpanel yaratıyoruz.kurucumuz
         setPreferredSize(new Dimension(WIDTH,HEIGHT));
-        setFocusable(true); //default de�eride true olur.pencerenin odaklanabilirli�ini ayarlar.
+        setFocusable(true); //default değeride true olur.pencerenin odaklanabilirliğini ayarlar.
         requestFocus();
     }
 
-    // thread'e pencere haz�r oldu�unda ba�latma yollar.
+    //Jpanel hazır olduğunda bu fonksiyona gider.
     public void addNotify() {
         super.addNotify();
         if(thread == null) {
@@ -55,8 +63,13 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
         }
     }
 
-    // add notifyde tan�mlanan therad burada �al���r.
     public void run() {
+
+        /**
+         * @param start her bir oyun döngüsünde işlemlere başlamadan önceki sistem saatini alan değişken.
+         * @param elapsed her bir oyun döngüsünde işlemler bittikten sonraki sistem saatinden start değişkenini çıkarak işlemlerde ne kadar vakit harcandığını bulan değişken.
+         * @param wait oyun döngüsünün bekletilme süresini diğer değişkenler vasıtasıyla bulan değişken.
+         */
 
         init();
 
@@ -64,7 +77,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
         long elapsed;
         long wait;
 
-        // game loop
+        // oyun döngüsü
         while(running) {
 
             start = System.nanoTime();
@@ -75,7 +88,7 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 
             elapsed = System.nanoTime() - start;
 
-            wait = TARGET_TIME - elapsed / 1000000;
+            wait = TARGET_TIME - elapsed / 1000000; //nanotime türünü milisaniyeye çevirmek amacıyla 1000000 sayısına böldük.
             if(wait < 0) wait = TARGET_TIME;
 
             try {
@@ -89,8 +102,12 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
 
     }
 
-    // initializes fields
+    /**
+     * Genel olarak tüm sınıflarda kullanılan init() fonksiyonu bir kurucu fonksiyon gibi değişkenlerin atamalarını yapan gerekli dosyaları yükleyen işlevli
+     * bir fonksiyondur.
+     */
     private void init() {
+
         running = true;
         image = new BufferedImage(WIDTH, HEIGHT, 1);
         g = (Graphics2D) image.getGraphics();
@@ -98,25 +115,42 @@ public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListe
         gsm = new GameStateManager();
     }
 
-    // updates game
+    /**
+     * Oyunun değişkenlerini değiştirmek, klavye hareketlerini algılamak,resimleri değiştirmek gibi güncellenmesi gereken değerleri
+     * sürekli kontrol ederek değiştiren fonksiyon.
+     *
+     * Buradaki kullanım game state manager'ın update fonksiyonuna gitmek üzere ayarlandı.Bunun sebebi ise o andaki aktif sahnenin update fonksiyonuna
+     * gidilmek istenmesinden ötürüdür.
+     */
     private void update() {
         gsm.update();
         Keys.update();
     }
 
-    // draws game
+    /**
+     * Oyunun ekrana nesne çizdirmek amacıyla kullanılan fonksiyonu.
+     *
+     * Buradaki kullanım game state manager'ın draw fonksiyonuna gitmek üzere ayarlandı.Bunun sebebi ise o andaki aktif sahnenin draw fonksiyonuna
+     * gidilmek istenmesinden ötürüdür.
+     */
     private void draw() {
         gsm.draw(g,g2);
     }
 
-    // copy buffer to screen
+    /**
+     * Oyunun asıl ekrana nesne çizdiren fonksiyonu.
+     *
+     * Graphics2D değişkenleri ile verdiğimiz çiz komutlarını bir graphics değişkeninde toplayarak ekrana basar.
+     */
     private void drawToScreen() {
-        Graphics g2 = getGraphics();
-        g2.drawImage(image, 0, 0, WIDTH , HEIGHT , null);
-        g2.dispose();
+        Graphics g3 = getGraphics();
+        g3.drawImage(image, 0, 0, WIDTH , HEIGHT , null);
+        g3.dispose();
     }
 
-    // key event and mouse
+    /**
+     * Implemente edilen klavye ve mause fonksiyonları
+     */
     public void keyTyped(KeyEvent key) {}
     public void keyPressed(KeyEvent key) {
         Keys.keySet(key.getKeyCode(), true);

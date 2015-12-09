@@ -9,10 +9,21 @@ import States.Play;
 import java.awt.*;
 
 /**
- * Created by soner on 20.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Oyunun mevcut sahnesini tutan ve sahne geçişlerinden sorumlu sınıf.Mevcut sahneyi tutması sayesinde o sahnenin gerekli metotlarına(update() , draw())
+ * erişebiliyoruz.
  */
 public class GameStateManager {
 
+    /**
+     * @param gameStates sahneleri barındıran dizidir.
+     * @param currentState mevcut sahneyi tutan değişkendir.
+     * @param previousState Bir önceki sahneyi tutan değişken.
+     * @param NUM_STATES Kaç adet sahne olduğunu tutan değişken
+     */
 
     private GameState[] gameStates;
     public static int currentState;
@@ -33,6 +44,9 @@ public class GameStateManager {
 
     }
 
+    /**
+     *Sahnelerin geçişini ayarlayan fonksiyondur.
+     */
     public void setState(int i) {
         previousState = currentState;
         unloadState(previousState);

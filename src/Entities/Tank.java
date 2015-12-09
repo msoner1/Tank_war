@@ -9,7 +9,11 @@ import java.io.IOException;
 import java.util.Random;
 
 /**
- * Created by soner on 22.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Tank varlýklarýný temsil eder ve Tank çarpýþmalarýný algýlar.
  */
 public class Tank extends Entity {
 

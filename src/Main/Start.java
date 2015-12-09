@@ -3,9 +3,11 @@ package Main;
 import javax.swing.*;
 
 /**
- * Created by soner on 18.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
  *
- * main fonksiyonumuz burada yer alýr ve ana baþlangýç classýmýz bu classdýr.
+ * Ana main baþlmama sýnýfýmýzdýr.
  */
 public class Start {
 

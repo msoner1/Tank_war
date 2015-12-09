@@ -4,7 +4,11 @@ import java.awt.*;
 import java.awt.image.BufferedImage;
 
 /**
- * Created by soner on 22.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Soyut sýnýftýr.Varlýklara miras vererek kullanýlýr.Varlýklara ait animasyon ve resim parçalama gibi iþlemlerde kullanýlýr.
  */
 public abstract class Entity {
 
@@ -44,23 +48,4 @@ public abstract class Entity {
             }
             animation_frame_speed[animation_number]++;
     }
-/*
-    public boolean set_animation_once(Graphics2D g,BufferedImage[] sprites,int animation_speed , int cordinates_x ,int cordinates_y){ //bu metot bir defa çaðrýldýðýnda istenilen animasyonu yaratýr.
-
-            g.drawImage(sprites[animation_frame_img_2], cordinates_x, cordinates_y, null);
-            animation_frame_img_2++;
-        try {
-            Thread.sleep(100);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        if (animation_frame_img_2 == sprites.length) {
-                animation_frame_img_2 = 0;
-                return true;
-            }
-            else {
-            return set_animation_once(g, sprites,animation_speed, cordinates_x, cordinates_y);
-            }
-    }
-*/
 }

@@ -17,15 +17,19 @@ import java.text.NumberFormat;
 import java.util.Random;
 
 /**
- * Created by soner on 19.11.2015.
- * Genel oyun ekraný
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Genel Oyun ekranýný Temsil Eder.
  */
 public class Play extends GameState{
 
     private BufferedImage playing_image;
-    private BufferedImage map_area;
+    private BufferedImage map_area_texture_img;
+    private TexturePaint map_texture;
 
-    private Polygon map_poly;
+    public static Polygon map_poly;
 
     private BufferedImage dot;
 
@@ -60,13 +64,9 @@ public class Play extends GameState{
         Random random = new Random();
         random_area = random.nextInt(2)+2;//minumum 1 max 2
 
-        //load music
-
         JukeBox.load("music/playing_back.mp3", "battle_background");
         JukeBox.setVolume("battle_background", -10);
         JukeBox.loop("battle_background");
-
-        //load sfx
 
         JukeBox.load("sfx/fire.mp3", "fire");
         JukeBox.load("sfx/tank_move.mp3", "move");
@@ -79,10 +79,11 @@ public class Play extends GameState{
 
         try {
             playing_image = ImageIO.read(new FileInputStream("img/playing_areas/area"+random_area+".jpg"));
-            map_area = ImageIO.read(new FileInputStream("img/playing_areas/map"+random_area+".png"));
+            map_area_texture_img = ImageIO.read(new FileInputStream("img/playing_areas/map"+random_area+".png"));
             Player1 = ImageIO.read(new FileInputStream("img/player1.png"));
             Player2 = ImageIO.read(new FileInputStream("img/player2.png"));
             dot = ImageIO.read(new FileInputStream("img/dot.png"));
+            map_texture = new TexturePaint(map_area_texture_img,new Rectangle(64,64));
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -120,17 +121,19 @@ public class Play extends GameState{
             gsm.setState(GameStateManager.FINISH);
         }
 
-        map_poly = new Polygon(map_cordinates_x,map_cordinates_y,722);
+        map_poly = new Polygon(map_cordinates_x,map_cordinates_y,720);
+        map_poly.addPoint(720,420);
+        map_poly.addPoint(0,420);
     }
 
     public void draw(Graphics2D g , Graphics2D g2) {
 
         g.setFont(new Font("Serif", Font.PLAIN, 18));
-        g2.setColor(Color.BLACK);
 
         g.drawImage(playing_image, 0, 0, null);
-        g2.drawImage(map_area,0,248,null);
-       // g2.drawPolygon(map_poly);
+        g2.setColor(Color.black);
+        g2.setPaint(map_texture);
+        g2.fill(map_poly);
 
         g.drawImage(Player1, 550, 25, null);
         g.drawImage(Player2, 550, 45, null);
