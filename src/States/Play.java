@@ -122,7 +122,7 @@ public class Play extends GameState{
         }
 
         map_poly = new Polygon(map_cordinates_x,map_cordinates_y,720);
-        map_poly.addPoint(720,420);
+        map_poly.addPoint(720, 420);
         map_poly.addPoint(0,420);
     }
 
@@ -131,6 +131,7 @@ public class Play extends GameState{
         g.setFont(new Font("Serif", Font.PLAIN, 18));
 
         g.drawImage(playing_image, 0, 0, null);
+        g.setColor(Color.black);
         g2.setColor(Color.black);
         g2.setPaint(map_texture);
         g2.fill(map_poly);
@@ -140,7 +141,14 @@ public class Play extends GameState{
         g.drawString(String.valueOf(tank1.tank_health), 635, 39);
         g.drawString(String.valueOf(tank2.tank_health), 635, 59);
         g.drawString("Your Bullet Speed = ", 10, 39);
-        g.drawString(formatter.format(Bullets.bullet_1_speed), 160, 39);
+        g.drawString("Your Selected Bullet = ", 10, 65);
+        g.drawString(formatter.format(Bullets.bullet_speed), 160, 39);
+        if(Bullets.selected_bullet == 1){
+            g.drawString(Bullets.bullet_1_name, 175, 64);
+        }
+        else {
+            g.drawString(Bullets.bullet_2_name, 175, 64);
+        }
 
         tank1.draw(g);
         tank2.draw(g);
@@ -192,16 +200,16 @@ public class Play extends GameState{
     public void handleInput() {
 
         if(Keys.isDown(Keys.ADD) && !Bullets.bullet_is_moving){
-            if(Bullets.bullet_1_speed < 20){
-                Bullets.bullet_1_speed+=0.1;
+            if(Bullets.bullet_speed < 20){
+                Bullets.bullet_speed +=0.1;
             }
 
 
         }
         if(Keys.isDown(Keys.SUBTRACT) && !Bullets.bullet_is_moving){
 
-            if(Bullets.bullet_1_speed > 3){
-                Bullets.bullet_1_speed-=0.1;
+            if(Bullets.bullet_speed > 3){
+                Bullets.bullet_speed -=0.1;
             }
         }
         if(Keys.isPressed(Keys.SPACE) && !Bullets.bullet_is_moving){
@@ -241,5 +249,14 @@ public class Play extends GameState{
         else {
             JukeBox.stop("move");
         }
+        if(Keys.isPressed(Keys.V) && !Bullets.bullet_is_moving){
+            if(Bullets.selected_bullet == 1){
+                Bullets.selected_bullet = 2;
+            }
+            else{
+                Bullets.selected_bullet = 1;
+            }
+        }
+
     }
 }
