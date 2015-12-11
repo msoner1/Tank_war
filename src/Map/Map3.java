@@ -1,7 +1,11 @@
 package Map;
 
 /**
- * Created by soner on 23.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * 3. harita kordinatlarýný içeren sýnýf
  */
 public class Map3 extends Map {
 

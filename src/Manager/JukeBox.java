@@ -5,8 +5,13 @@ import java.io.FileInputStream;
 import java.util.HashMap;
 
 /**
- * Created by soner on 20.11.2015.
+ * @author : ForeignGuyMike
+ * @version : 1.0.0
+ * @since : ?
+ *
+ * Oyun içi ses efektleri ve müzikleri yöneten sýnýftýr.
  */
+
 public class JukeBox {
 
     private static HashMap<String, Clip> clips;

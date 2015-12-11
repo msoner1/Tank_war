@@ -21,9 +21,29 @@ import java.util.Random;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * Genel Oyun ekran�n� Temsil Eder.
+ * Genel Oyun ekranını Temsil Eder.
  */
 public class Play extends GameState{
+
+    /**
+     * @param playing_image Oyunun arkaplan remini temsil eder.
+     * @param map_area_texture_img Oyun haritasının doku resmini temsil eder.
+     * @param map_texture Oyun haritasının doku resminin TexturePaint türüne dönüştürülmüş halidir.
+     *
+     * @param map_poly Oyun haritasının poligonudur.
+     *
+     * @param dot Oyun skor tablosundaki sıra belirten kırmızı nokta resmini temsil eder.
+     *
+     * @param Player1 Oyun skor tablosundaki player 1 yazısının resim şeklidir.
+     * @param Player2 Oyun skor tablosundaki player 2 yazısının resim şeklidir.
+     *
+     * @param who_win Oyunu kimin kazandığının belirten değişken.
+     *
+     * @param sira Siranın kimde olduğunu belirten değişken.
+     * @param change_sira Sırayı değiştirme emrini veren değişken.
+     *
+     * @param random_area Haritanın rastgele belirlenmesi için rastgele bir değişken.
+     */
 
     private BufferedImage playing_image;
     private BufferedImage map_area_texture_img;
@@ -161,38 +181,38 @@ public class Play extends GameState{
 
         if(sira == 1){
 
-            g.drawImage(dot, 530, 25, 15, 15, null); //s�ra belirten nokta
+            g.drawImage(dot, 530, 25, 15, 15, null); //sıra belirten nokta
 
             bullets.draw(g,tank1,tank2);
             tank1.move(g);
 
-            int previus_fire = fire; //fire de�erinin de�i�ip de�i�meyece�ini anlamak i�in burda o de�eri al�yoruz.
+            int previus_fire = fire; //fire değerinin değişip değişmeyeceğini anlamak için burda o değeri alıyoruz.
 
             if(fire==1){
                 bullets.fire_bullet_1(g,tank1);
                 fire = 0;
             }
 
-            if(previus_fire != fire){ //fire de�eri de�i�mi� demektir yani mermi ate� ald�.
-                change_sira = true;//sirayi de�i�tirmek i�in komut verdik;
+            if(previus_fire != fire){ //fire değeri değişmiş demektir yani mermi ateş aldı.
+                change_sira = true;//sirayi değiştirmek için komut verdik;
             }
 
         }
         else {
 
-            g.drawImage(dot, 530, 45, 15, 15, null); //s�ra belirten nokta
+            g.drawImage(dot, 530, 45, 15, 15, null); //sıra belirten nokta
 
             bullets.draw(g,tank2,tank1);
             tank2.move(g);
-            int previus_fire = fire;  //fire de�erinin de�i�ip de�i�meyece�ini anlamak i�in burda o de�eri al�yoruz.
+            int previus_fire = fire;  //fire değerinin değişip değişmeyeceğini anlamak için burda o değeri alıyoruz.
 
             if(fire==1){
                 bullets.fire_bullet_1(g,tank2);
                 fire = 0;
             }
 
-            if(previus_fire != fire){  //fire de�eri de�i�mi� demektir yani mermi ate� ald�.
-                change_sira = true;    //sirayi de�i�tirmek i�in komut verdik.
+            if(previus_fire != fire){  //fire değeri değişmiş demektir yani mermi ateş aldı.
+                change_sira = true;    //sirayi değiştirmek için komut verdik.
             }
         }
     }

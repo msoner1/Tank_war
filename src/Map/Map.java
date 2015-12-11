@@ -1,7 +1,11 @@
 package Map;
 
 /**
- * Created by soner on 23.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Oyunun haritalarý için oluþturulmuþ soyut classtýr.
  */
 public abstract class Map {
     public static int[] cordinates_x;

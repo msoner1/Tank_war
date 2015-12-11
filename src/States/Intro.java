@@ -11,9 +11,23 @@ import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 
 /**
- * Created by soner on 19.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Intro Sahnesi
  */
 public class Intro extends GameState {
+
+    /**
+     * @param logo logo resmini içerir.
+     * @param alpha þeffaflýk derecesidir.Her döngüde hesaplanarak bir animasyon oluþturulur.
+     * @param ticks Oyun döngüsünün her dönüþünde artýrýlan deðiþkendir.
+     * @param FADE_IN logonun ekranda belirirken bu sürenin kaç oyun döngüsü olacaðýný temsil eder.
+     * @param LENGTH logonun ekranda kalma süresinin kaç oyun döngüsü olacaðýný temsil eder.
+     * @param FADE_OUT logonun ekrandan kaybolurken bu sürenin kaç oyun döngüsü olacaðýný temsil eder.
+     */
+
     private BufferedImage logo;
 
     private int alpha;

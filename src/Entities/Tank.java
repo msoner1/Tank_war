@@ -13,7 +13,7 @@ import java.util.Random;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * Tank varlıklarını temsil eder ve Tank çarpışmalarını algılar.
+ * Tank varlÄ±klarÄ±nÄ± temsil eder ve Tank Ã§arpÄ±ÅŸmalarÄ±nÄ± algÄ±lar.
  */
 public class Tank extends Entity {
 
@@ -55,7 +55,7 @@ public class Tank extends Entity {
         tank_sprites = super.set_frames(tank_sprite_sheet,width,height);
         Random random = new Random();
 
-        tank_front_cordinate = random.nextInt(50)+50; //Tankın belireceği kordinat
+        tank_front_cordinate = random.nextInt(50)+50; //TankÄ±n belireceÄŸi kordinat
         tank_health = 100;
 
 
@@ -74,7 +74,7 @@ public class Tank extends Entity {
         tank_sprites = super.set_frames(tank_sprite_sheet,width,height);
         Random random = new Random();
 
-        tank_front_cordinate = random.nextInt(50)+600; //2. Tankın belireceği kordinat
+        tank_front_cordinate = random.nextInt(50)+600; //2. TankÄ±n belireceÄŸi kordinat
 
 
     }
@@ -204,7 +204,7 @@ public class Tank extends Entity {
         draw_barrel(g);
     }
 
-    public void move(Graphics2D g){ //animasyon oluşturur.
+    public void move(Graphics2D g){ //animasyon oluÅŸturur.
 
         if(!Bullets.bullet_is_moving) {
             if (!Keys.isDown(Keys.LEFT) && !Keys.isDown(Keys.RIGHT)) {

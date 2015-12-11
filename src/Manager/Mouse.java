@@ -6,8 +6,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * Created by soner on 20.11.2015.
- * bu class sadece menu ekraný için özel yaratýlmýþtýr.Gamepanelden emir alýr.
+ * @author : Mustafa Soner Aydýn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Bu sýnýf menüdeki mause hareketlerini algýlamak ve iþlemek içindir.
  */
 public class Mouse {
 
@@ -16,11 +19,11 @@ public class Mouse {
     public static void clicked(MouseEvent e,GameStateManager gsm) {
         int x = e.getX();
         int y = e.getY();
-        if(x<452 && x>268 && y<248 && y>200) { //play
+        if(x<452 && x>268 && y<248 && y>200) { //play buton
             JukeBox.stop("menu_background");
             gsm.setState(GameStateManager.PLAY);
         }
-        else if(x<452 && x>268 && y<302 && y>260) { //exit
+        else if(x<452 && x>268 && y<302 && y>260) { //exit buton
             System.exit(0);
         }
     }
@@ -28,7 +31,7 @@ public class Mouse {
     public static void moved(MouseEvent e) throws IOException {
         int x = e.getX();
         int y = e.getY();
-        if(x<452 && x>268 && y<248 && y>200) { //play
+        if(x<452 && x>268 && y<248 && y>200) { //play buton hover
             if (play_menu_option_sound == true) {
                 Menu.set_button_img(new FileInputStream("img/play_hover.png"),"play");
                 JukeBox.play("menu_option");
@@ -36,7 +39,7 @@ public class Mouse {
             }
         }
 
-        else if(x<452 && x>268 && y<302 && y>260) { //exit
+        else if(x<452 && x>268 && y<302 && y>260) { //exit buton hover
             if (play_menu_option_sound == true) {
                 Menu.set_button_img(new FileInputStream("img/exit_hover.png"),"exit");
                 JukeBox.play("menu_option");

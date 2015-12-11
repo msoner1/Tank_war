@@ -11,11 +11,21 @@ import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * Created by soner on 19.11.2015.
- * Oyun biti�i ekran� kimin kazand���n�n g�sterilmesi.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Oyunun bitiş ekranı ve credit kısmı.
  */
 public class Finish extends GameState {
 
+    /**
+     * @param player1_win 1. playerın kazanması durumunda ekrana çizilecek resimi temsil etmektedir.
+     * @param player2_win 2. playerın kazanması durumunda ekrana çizilecek resimi temsil etmektedir.
+     * @param developer Credit resmini temsil eder.
+     * @param developer_position_x Credit resminin kaydırılması için x kordinatını tutar.
+     * @param developer_position_y Credit resminin kaydırılması için y kordinatını tutar.
+     */
     private BufferedImage player1_win;
     private BufferedImage player2_win;
 
@@ -47,7 +57,9 @@ public class Finish extends GameState {
     @Override
     public void update() {
         handleInput();
-
+        /**
+         * Credit resminin kaydırılması.
+         */
         if(developer_position_y != -2080 ){developer_position_y--;}
     }
 

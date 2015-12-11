@@ -1,8 +1,11 @@
 package Map;
 
 /**
- * Created by soner on 23.11.2015.
- * 2. haritanýn kordinat bilgilerini bulunduran classdýr.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * 2. harita kordinatlarýný içeren sýnýf
  */
 public class Map2 extends Map {
 

@@ -2,17 +2,18 @@ package States;
 
 import Manager.GameStateManager;
 import Manager.JukeBox;
-
 import javax.imageio.ImageIO;
 import java.awt.*;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.awt.image.BufferedImage;
 import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
- * Created by soner on 19.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Menu Sahnesi
  */
 public class Menu extends GameState{
 

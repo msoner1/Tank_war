@@ -1,11 +1,14 @@
 package States;
 
 import Manager.GameStateManager;
-
 import java.awt.*;
 
 /**
- * Created by soner on 19.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Tüm sahnelerin ortak fonksiyonlarýný bulunduran soyut sýnýf.
  */
 public abstract class GameState {
     protected GameStateManager gsm;

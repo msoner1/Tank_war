@@ -3,7 +3,11 @@ package Manager;
 import java.awt.event.KeyEvent;
 
 /**
- * Created by soner on 20.11.2015.
+ * @author : Mustafa Soner Aydn
+ * @version : 1.0.0
+ * @since : 11.11.2015
+ *
+ * Oyun içi klavye kontrolünü sağlayan sınıf.
  */
 public class Keys {
     public static final int NUM_KEYS = 9;

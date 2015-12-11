@@ -19,6 +19,10 @@ import java.util.Random;
  */
 public class Bullets extends Entity{
 
+    /**
+      * @param which_way Super_s mermisinin yere düştüğünde x kordinatının hangi yöne gideceğini belirten değişken bunu haritanın eğimine bakarak karar verir.
+     */
+
     private BufferedImage bullet_effect_sprite_sheet;
     private BufferedImage[] bullet_effects_sprites;
     private BufferedImage explosion_effect_sprite_sheet;
@@ -38,6 +42,7 @@ public class Bullets extends Entity{
 
     public static boolean bullet_is_moving;
     public static int selected_bullet = 1;
+    private int which_way = 0;
 
     private final int bullet_effect_width = 24;
     private final int bullet_effect_height = 24;
@@ -134,8 +139,9 @@ public class Bullets extends Entity{
                          * @param random_fall_optimization merminin açacağı deliğin çok keskin olmasını engellemek ve o deliğe tırtıklı doku kazandırmak için oluşturulmuş değişkendir.
                          */
                         Random r = new Random();
-                        int random_fall = r.nextInt(10);
+                        int random_fall = r.nextInt(5) + 5;
                         for(int i=0;i<15;i++){
+                            if(bullet_x_cordinate < 2 && bullet_x_cordinate > 718){break;}
                             int random_fall_optimization = r.nextInt(3);
                             if(i == 14){
                                 Play.map_cordinates_y[bullet_x_cordinate] = Play.map_cordinates_y[bullet_x_cordinate] + random_fall;
@@ -166,12 +172,15 @@ public class Bullets extends Entity{
                 }
                 else{
                     if(bullet_x_cordinate > 2 && bullet_x_cordinate < 718){
-                        if(Play.map_cordinates_y[bullet_x_cordinate] < Play.map_cordinates_y[bullet_x_cordinate + 5]){
-                            bullet_x_cordinate += 2;
+                        if(tick == 1){
+                            if(Play.map_cordinates_y[bullet_x_cordinate] < Play.map_cordinates_y[bullet_x_cordinate + 5]){
+                                which_way = 2;
+                            }
+                            else {
+                                which_way = -2;
+                            }
                         }
-                        else {
-                            bullet_x_cordinate -= 2;
-                        }
+                        bullet_x_cordinate += which_way;
                         bullet_y_cordinate = Play.map_cordinates_y[bullet_x_cordinate];
                         g.drawImage(bullet, bullet_x_cordinate, bullet_y_cordinate,null);
                     }
