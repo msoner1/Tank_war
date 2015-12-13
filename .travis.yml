@@ -1,7 +1,5 @@
 language: java
-java : 
- -1.8
- -1.7
-branches:
-  only:
-    - master
+install: ant deps
+jdk:
+  - oraclejdk8
+  - oraclejdk7
