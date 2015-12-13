@@ -5,7 +5,7 @@ package Map;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * Oyunun haritaları için oluşturulmuş soyut classtır.
+ * Oyunun haritalarÄ± iÃ§in oluÅŸturulmuÅŸ soyut classtÄ±r.
  */
 public abstract class Map {
     public static int[] cordinates_x;

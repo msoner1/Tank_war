@@ -8,7 +8,7 @@ import java.awt.*;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * Tüm sahnelerin ortak fonksiyonlarını bulunduran soyut sınıf.
+ * TÃ¼m sahnelerin ortak fonksiyonlarÄ±nÄ± bulunduran soyut sÄ±nÄ±f.
  */
 public abstract class GameState {
     protected GameStateManager gsm;

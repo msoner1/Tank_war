@@ -10,7 +10,6 @@ import Map.*;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.IOException;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
@@ -84,25 +83,25 @@ public class Play extends GameState{
         Random random = new Random();
         random_area = random.nextInt(2)+2;//minumum 1 max 2
 
-        JukeBox.load("music/playing_back.mp3", "battle_background");
+        JukeBox.load("/music/playing_back.mp3", "battle_background");
         JukeBox.setVolume("battle_background", -10);
         JukeBox.loop("battle_background");
 
-        JukeBox.load("sfx/fire.mp3", "fire");
-        JukeBox.load("sfx/tank_move.mp3", "move");
-        JukeBox.load("sfx/barrel_move.mp3", "barrel_move");
-        JukeBox.load("sfx/explosion.mp3", "explosion");
-        JukeBox.load("sfx/big_explosion.mp3", "big_explosion");
+        JukeBox.load("/sfx/fire.mp3", "fire");
+        JukeBox.load("/sfx/tank_move.mp3", "move");
+        JukeBox.load("/sfx/barrel_move.mp3", "barrel_move");
+        JukeBox.load("/sfx/explosion.mp3", "explosion");
+        JukeBox.load("/sfx/big_explosion.mp3", "big_explosion");
         JukeBox.setVolume("fire", +5);
         JukeBox.setVolume("explosion", +5);
 
 
         try {
-            playing_image = ImageIO.read(new FileInputStream("img/playing_areas/area"+random_area+".jpg"));
-            map_area_texture_img = ImageIO.read(new FileInputStream("img/playing_areas/map"+random_area+".png"));
-            Player1 = ImageIO.read(new FileInputStream("img/player1.png"));
-            Player2 = ImageIO.read(new FileInputStream("img/player2.png"));
-            dot = ImageIO.read(new FileInputStream("img/dot.png"));
+            playing_image = ImageIO.read(getClass().getResource("/img/playing_areas/area"+random_area+".jpg"));
+            map_area_texture_img = ImageIO.read(getClass().getResource("/img/playing_areas/map"+random_area+".png"));
+            Player1 = ImageIO.read(getClass().getResource("/img/player1.png"));
+            Player2 = ImageIO.read(getClass().getResource("/img/player2.png"));
+            dot = ImageIO.read(getClass().getResource("/img/dot.png"));
             map_texture = new TexturePaint(map_area_texture_img,new Rectangle(64,64));
 
         } catch (IOException e) {

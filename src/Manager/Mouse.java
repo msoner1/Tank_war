@@ -2,7 +2,6 @@ package Manager;
 
 import States.Menu;
 import java.awt.event.MouseEvent;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -33,7 +32,7 @@ public class Mouse {
         int y = e.getY();
         if(x<452 && x>268 && y<248 && y>200) { //play buton hover
             if (play_menu_option_sound == true) {
-                Menu.set_button_img(new FileInputStream("img/play_hover.png"),"play");
+                Menu.set_button_img("/img/play_hover.png","play");
                 JukeBox.play("menu_option");
                 play_menu_option_sound = false;
             }
@@ -41,14 +40,14 @@ public class Mouse {
 
         else if(x<452 && x>268 && y<302 && y>260) { //exit buton hover
             if (play_menu_option_sound == true) {
-                Menu.set_button_img(new FileInputStream("img/exit_hover.png"),"exit");
+                Menu.set_button_img("/img/exit_hover.png","exit");
                 JukeBox.play("menu_option");
                 play_menu_option_sound = false;
             }
         }
         else {
-            Menu.set_button_img(new FileInputStream("img/exit.png"),"exit");
-            Menu.set_button_img(new FileInputStream("img/play_button.png"),"play");
+            Menu.set_button_img("/img/exit.png","exit");
+            Menu.set_button_img("/img/play_button.png","play");
             play_menu_option_sound=true;
         }
     }

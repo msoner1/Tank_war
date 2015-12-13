@@ -1,5 +1,8 @@
 package Manager;
 
+import Map.Map;
+import States.Play;
+
 import javax.sound.sampled.*;
 import java.io.FileInputStream;
 import java.util.HashMap;
@@ -8,6 +11,8 @@ import java.util.HashMap;
  * @author : ForeignGuyMike
  * @version : 1.0.0
  * @since : ?
+ *
+ * reorganized by soner aydýn.
  *
  * Oyun içi ses efektleri ve müzikleri yöneten sýnýftýr.
  */
@@ -30,7 +35,7 @@ public class JukeBox {
         Clip clip;
         try {
             AudioInputStream ais =
-                    AudioSystem.getAudioInputStream(new FileInputStream(s));
+                    AudioSystem.getAudioInputStream(JukeBox.class.getClass().getResource(s));
             AudioFormat baseFormat = ais.getFormat();
             AudioFormat decodeFormat = new AudioFormat(
                     AudioFormat.Encoding.PCM_SIGNED,

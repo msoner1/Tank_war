@@ -7,22 +7,22 @@ import javax.swing.*;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * Ana main baþlmama sýnýfýmýzdýr.
+ * Ana main baÅŸlmama sÄ±nÄ±fÄ±mÄ±zdÄ±r.
  */
 public class Start {
 
     public static void main(String[] args){
 
-        JFrame window = new JFrame("Tank War"); //pencerenin yaratýlmasý.
+        JFrame window = new JFrame("Tank War"); //pencerenin yaratÄ±lmasÄ±.
 
-        window.add(new GamePanel()); // Jframe içine Jpanel ekledik.
-        window.setIconImage(new ImageIcon("img/icon.png").getImage());//favicon ayarlanmasý
+        window.add(new GamePanel()); // Jframe iÃ§ine Jpanel ekledik.
+        window.setIconImage(new ImageIcon(Start.class.getResource("/img/icon.png")).getImage());//favicon ayarlanmasÄ±
 
-        window.setResizable(false); //oyunun penceresi yeniden boyutlandýrýlamayacak.
+        window.setResizable(false); //oyunun penceresi yeniden boyutlandÄ±rÄ±lamayacak.
         window.pack();//paket boyut ayarlama
 
         window.setLocationRelativeTo(null); //pencereyi ortalar
-        window.setVisible(true); //pencereyi gösterir.
+        window.setVisible(true); //pencereyi gÃ¶sterir.
         window.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     }

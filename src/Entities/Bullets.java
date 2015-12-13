@@ -65,9 +65,9 @@ public class Bullets extends Entity{
 
         bullet_is_moving=false;
         try {
-            bullet_effect_sprite_sheet = ImageIO.read(new FileInputStream("img/entities/fire.png"));
-            explosion_effect_sprite_sheet = ImageIO.read(new FileInputStream("img/entities/explosion_area.png"));
-            bullet = ImageIO.read(new FileInputStream("img/entities/bullet.png"));
+            bullet_effect_sprite_sheet = ImageIO.read(getClass().getResource("/img/entities/fire.png"));
+            explosion_effect_sprite_sheet = ImageIO.read(getClass().getResource("/img/entities/explosion_area.png"));
+            bullet = ImageIO.read(getClass().getResource("/img/entities/bullet.png"));
 
         } catch (IOException e) {
             e.printStackTrace();

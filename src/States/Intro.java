@@ -20,12 +20,12 @@ import java.io.FileInputStream;
 public class Intro extends GameState {
 
     /**
-     * @param logo logo resmini içerir.
-     * @param alpha şeffaflık derecesidir.Her döngüde hesaplanarak bir animasyon oluşturulur.
-     * @param ticks Oyun döngüsünün her dönüşünde artırılan değişkendir.
-     * @param FADE_IN logonun ekranda belirirken bu sürenin kaç oyun döngüsü olacağını temsil eder.
-     * @param LENGTH logonun ekranda kalma süresinin kaç oyun döngüsü olacağını temsil eder.
-     * @param FADE_OUT logonun ekrandan kaybolurken bu sürenin kaç oyun döngüsü olacağını temsil eder.
+     * @param logo logo resmini iÃ§erir.
+     * @param alpha ÅeffaflÄ±k derecesidir.Her dÃ¶ngÃ¼de hesaplanarak bir animasyon oluÅŸturulur.
+     * @param ticks Oyun dÃ¶ngÃ¼sÃ¼nÃ¼n her dÃ¶nÃ¼ÅŸÃ¼nde artÄ±rÄ±lan deÄŸiÅŸkendir.
+     * @param FADE_IN logonun ekranda belirirken bu sÃ¼renin kaÃ§ oyun dÃ¶ngÃ¼sÃ¼ olacaÄŸÄ±nÄ± temsil eder.
+     * @param LENGTH logonun ekranda kalma sÃ¼resinin kaÃ§ oyun dÃ¶ngÃ¼sÃ¼ olacaÄŸÄ±nÄ± temsil eder.
+     * @param FADE_OUT logonun ekrandan kaybolurken bu sÃ¼renin kaÃ§ oyun dÃ¶ngÃ¼sÃ¼ olacaÄŸÄ±nÄ± temsil eder.
      */
 
     private BufferedImage logo;
@@ -43,11 +43,11 @@ public class Intro extends GameState {
 
     public void init() {
         ticks = 0;
-        // load sfx
-        JukeBox.load("sfx/intro_back.mp3", "intro");
+
+        JukeBox.load("/sfx/intro_back.mp3", "intro");
         try {
             JukeBox.play("intro");
-            logo = ImageIO.read(new FileInputStream("logo/logo.jpg"));
+            logo = ImageIO.read(getClass().getResource("/logo/logo.jpg"));
         }
         catch(Exception e) {
             e.printStackTrace();

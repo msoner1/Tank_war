@@ -46,8 +46,8 @@ public class Tank extends Entity {
         this.map_cordinates_x =map_cordinates_x;
         this.map_cordinates_y=map_cordinates_y;
         try {
-            this.tank_sprite_sheet = ImageIO.read(new FileInputStream("img/entities/tank.png"));
-            this.barrel = super.set_frames(ImageIO.read(new FileInputStream("img/entities/barrel.png")),46,46);
+            this.tank_sprite_sheet = ImageIO.read(getClass().getResource("/img/entities/tank.png"));
+            this.barrel = super.set_frames(ImageIO.read(getClass().getResource("/img/entities/barrel.png")),46,46);
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -65,8 +65,8 @@ public class Tank extends Entity {
         this.map_cordinates_x =map_cordinates_x;
         this.map_cordinates_y=map_cordinates_y;
         try {
-            this.tank_sprite_sheet = ImageIO.read(new FileInputStream("img/entities/tank.png"));
-            this.barrel = super.set_frames(ImageIO.read(new FileInputStream("img/entities/barrel.png")),46,46);
+            this.tank_sprite_sheet = ImageIO.read(getClass().getResource("/img/entities/tank.png"));
+            this.barrel = super.set_frames(ImageIO.read(getClass().getResource("/img/entities/barrel.png")),46,46);
         } catch (IOException e) {
             e.printStackTrace();
         }

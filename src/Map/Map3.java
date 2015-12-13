@@ -5,7 +5,7 @@ package Map;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * 3. harita kordinatlarını içeren sınıf
+ * 3. harita kordinatlarÄ±nÄ± iÃ§eren sÄ±nÄ±f
  */
 public class Map3 extends Map {
 

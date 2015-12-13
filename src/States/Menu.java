@@ -5,7 +5,6 @@ import Manager.JukeBox;
 import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.FileInputStream;
 import java.io.IOException;
 
 /**
@@ -26,28 +25,28 @@ public class Menu extends GameState{
 
     public void init() {
 
-        // arkaplan muzik yükleme
-        JukeBox.load("music/main_menu.mp3", "menu_background");
-        JukeBox.load("sfx/menu_option.mp3", "menu_option");
+        // arkaplan muzik yÃ¼kleme
+        JukeBox.load("/music/main_menu.mp3", "menu_background");
+        JukeBox.load("/sfx/menu_option.mp3", "menu_option");
         JukeBox.setVolume("menu_background", -5);
         JukeBox.setVolume("menu_option", -10);
         JukeBox.loop("menu_background");
 
         try {
-            background_img = ImageIO.read(new FileInputStream("img/main_back.jpg"));
-            play_button_img = ImageIO.read(new FileInputStream("img/play_button.png"));
-            exit_button_img = ImageIO.read(new FileInputStream("img/exit.png"));
+            background_img = ImageIO.read(getClass().getResource("/img/main_back.jpg"));
+            play_button_img = ImageIO.read(getClass().getResource("/img/play_button.png"));
+            exit_button_img = ImageIO.read(getClass().getResource("/img/exit.png"));
         }
         catch(Exception e) {
             e.printStackTrace();
         }
     }
-    public static void set_button_img(FileInputStream img,String button) throws IOException {
+    public static void set_button_img(String img,String button) throws IOException {
         if(button.equals("exit")){
-            exit_button_img = ImageIO.read(img);
+            exit_button_img = ImageIO.read(Menu.class.getClass().getResource(img));
         }
         else if(button.equals("play")){
-            play_button_img = ImageIO.read(img);
+            play_button_img = ImageIO.read(Menu.class.getClass().getResource(img));
         }
 
     }

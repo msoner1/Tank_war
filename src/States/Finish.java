@@ -40,9 +40,9 @@ public class Finish extends GameState {
         JukeBox.setVolume("victory", +5);
 
         try {
-            player1_win = ImageIO.read(new FileInputStream("img/player1_win.png"));
-            player2_win = ImageIO.read(new FileInputStream("img/player2_win.png"));
-            developer = ImageIO.read(new FileInputStream("img/developer.png"));
+            player1_win = ImageIO.read(getClass().getResource("/img/player1_win.png"));
+            player2_win = ImageIO.read(getClass().getResource("/img/player2_win.png"));
+            developer = ImageIO.read(getClass().getResource("/img/developer.png"));
         } catch (IOException e) {
             e.printStackTrace();
         }
