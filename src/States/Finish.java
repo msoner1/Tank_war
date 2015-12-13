@@ -36,7 +36,7 @@ public class Finish extends GameState {
 
     public Finish(GameStateManager gsm) {
         super(gsm);
-        JukeBox.load("music/victory.mp3", "victory");
+        JukeBox.load("/music/victory.mp3", "victory");
         JukeBox.setVolume("victory", +5);
 
         try {
