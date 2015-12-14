@@ -1,6 +1,6 @@
 # Tank_war
 
-https://travis-ci.org/msoner1/Tank_war.svg?branch=master
+<img src="https://travis-ci.org/msoner1/Tank_war.svg?branch=master" />
 
 This is basic 2d java game for education.
 
