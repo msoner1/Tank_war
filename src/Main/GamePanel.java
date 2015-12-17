@@ -15,7 +15,7 @@ import java.io.IOException;
  * @version : 1.0.0
  * @since : 11.11.2015
  *
- * Mermi varlıklarını temsil eder ve mermi çarpışmalarını algılar.
+ * Oyun döngüsünün yer aldığı sınıftır.Oyun paneli oluşturulur.
  */
 public class GamePanel extends JPanel implements Runnable,KeyListener,MouseListener,MouseMotionListener {
 
